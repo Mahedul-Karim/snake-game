@@ -1,4 +1,4 @@
-from turtle import Turtle,Screen
+from turtle import Screen
 from snake import Snake
 import time
 
@@ -9,6 +9,13 @@ screen.title("Hungry Snake")
 screen.tracer(0)
 
 snake = Snake()
+
+screen.listen()
+
+screen.onkey(snake.move_up, "Up")
+screen.onkey(snake.move_down,"Down")
+screen.onkey(snake.move_left,"Left")
+screen.onkey(snake.move_right,"Right")
 
 game_started = True
 

@@ -8,6 +8,7 @@ class Snake:
     def __init__(self):
         self.body_segments = []
         self.create_snake()
+        self.snake_head = self.body_segments[0]
 
     def create_snake(self):
         for position in SNAKE_POSITIONS:
@@ -23,3 +24,19 @@ class Snake:
             y_coords = self.body_segments[segment - 1].ycor()
             self.body_segments[segment].goto(x_coords,y_coords)
         self.body_segments[0].forward(MOVE_BY)
+
+    def move_up(self):
+        if self.snake_head.heading() != 270:
+            self.snake_head.setheading(90)
+
+    def move_down(self):
+        if self.snake_head.heading() != 90:
+            self.snake_head.setheading(270)
+
+    def move_left(self):
+        if self.snake_head.heading() != 0:
+            self.snake_head.setheading(180)
+
+    def move_right(self):
+        if self.snake_head.heading() != 180:
+            self.snake_head.setheading(0)
